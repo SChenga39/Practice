@@ -12,6 +12,7 @@ signed main() {
     solve();
     return 0;
 }
+
 int n;
 pair<int, int> ar[100005];
 void solve() {
