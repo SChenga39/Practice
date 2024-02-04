@@ -13,21 +13,13 @@ signed main() {
     return 0;
 }
 
-int n;
-int ar[105];
-int a, t;
+string s;
+set<string> st;
 void solve() {
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        cin >> ar[i];
-        ar[i] &= 1;
-        a += ar[i];
-    }
-    t = (a == 1);
-    for (int i = 0; i < n; ++i) {
-        if (ar[i] == t) {
-            cout << i + 1 << endl;
-            return;
-        }
-    }
+    cin >> s;
+    sort(s.begin(), s.end());
+    do
+        st.insert(s);
+    while (next_permutation(s.begin(), s.end()));
+    cout << st.size() << endl;
 }

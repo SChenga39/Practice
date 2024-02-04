@@ -13,21 +13,18 @@ signed main() {
     return 0;
 }
 
-int n;
-int ar[105];
-int a, t;
+/*
+* 思路
+直接输入，当且仅当后一个输入大于前一个输入时需要多填 $\Delta$ 次土来使深坑填满
+*/
+int n, a;
+int sum, l;
 void solve() {
     cin >> n;
-    for (int i = 0; i < n; ++i) {
-        cin >> ar[i];
-        ar[i] &= 1;
-        a += ar[i];
+    for (int i = 1; i <= n; ++i) {
+        cin >> a;
+        if (a > l) sum += (a - l);
+        l = a;
     }
-    t = (a == 1);
-    for (int i = 0; i < n; ++i) {
-        if (ar[i] == t) {
-            cout << i + 1 << endl;
-            return;
-        }
-    }
+    cout << sum << endl;
 }

@@ -13,21 +13,15 @@ signed main() {
     return 0;
 }
 
-int n;
-int ar[105];
-int a, t;
+/*
+* 描述
+守形数：它的平方的低位部分等于它本身，判断一个数是否是守形数
+*/
 void solve() {
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
-        cin >> ar[i];
-        ar[i] &= 1;
-        a += ar[i];
-    }
-    t = (a == 1);
-    for (int i = 0; i < n; ++i) {
-        if (ar[i] == t) {
-            cout << i + 1 << endl;
-            return;
-        }
-    }
+    int n;
+    while (cin >> n)
+        if (n < 10)
+            cout << (n * n % 10 == n ? "Yes" : "No") << endl;
+        else
+            cout << (n * n % 100 == n ? "Yes" : "No") << endl;
 }

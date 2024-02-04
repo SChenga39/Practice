@@ -13,21 +13,15 @@ signed main() {
     return 0;
 }
 
+/*
+ * 由于直接使用内置函数会有精度损失的问题，必须手动模拟
+ */
+int ans;
 int n;
-int ar[105];
-int a, t;
 void solve() {
     cin >> n;
-    for (int i = 0; i < n; ++i) {
-        cin >> ar[i];
-        ar[i] &= 1;
-        a += ar[i];
-    }
-    t = (a == 1);
-    for (int i = 0; i < n; ++i) {
-        if (ar[i] == t) {
-            cout << i + 1 << endl;
-            return;
-        }
-    }
+    // 注意必须是 1LL
+    while ((1LL << ans) <= n)
+        ++ans;
+    cout << ans - 1 << endl;
 }
